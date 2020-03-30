@@ -19,10 +19,12 @@
   },
   "homepage": "https://github.com/GabrielStima/codeNationChallenge#readme",
   "dependencies": {
+    "axios": "^0.19.2",
     "cors": "^2.8.5",
     "express": "^4.17.1",
-    "https": "^1.0.0",
+    "jsonfile": "^6.0.1",
     "nodemon": "^2.0.2",
-    "request": "^2.88.2"
+    "request": "^2.88.2",
+    "request-promise": "^4.2.5"
   }
 }
