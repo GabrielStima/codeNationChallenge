@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "default": "cross-env NODE_ENV=default node index.js",
+    "codenation": "node index.js"
   },
   "repository": {
     "type": "git",
@@ -20,11 +20,8 @@
   "homepage": "https://github.com/GabrielStima/codeNationChallenge#readme",
   "dependencies": {
     "axios": "^0.19.2",
-    "cors": "^2.8.5",
-    "express": "^4.17.1",
-    "jsonfile": "^6.0.1",
-    "nodemon": "^2.0.2",
-    "request": "^2.88.2",
-    "request-promise": "^4.2.5"
+    "cross-env": "^7.0.2",
+    "form-data": "^3.0.0",
+    "jsonfile": "^6.0.1"
   }
 }

@@ -11,7 +11,22 @@ const genereteExtenalUrl = route => {
 };
 
 const callAPI = async () => {
-  let result = await axios.get(genereteExtenalUrl("generate-data"));
+  let result;
+
+  if (process.env.NODE_ENV === "default") {
+    result = {
+      data: {
+        numero_casas: 6,
+        token: "7473b4622f7a261441b38947448e694913433390",
+        cifrado: "ol znk lgizy ju tuz loz znk znkuxe, ingtmk znk lgizy. grhkxz kotyzkot",
+        decifrado: "",
+        resumo_criptografico: ""
+      }
+    };
+  } else {
+    result = await axios.get(genereteExtenalUrl("generate-data"));
+  }
+
   createJSON(result.data);
   updateJSON(result.data);
 };
@@ -111,12 +126,16 @@ async function sendFile() {
   form.append("answer", fs.createReadStream("answer.json"));
 
   try {
-    const response = await axios.post(genereteExtenalUrl("submit-solution"), form, {
-      headers: {
-        ...form.getHeaders()
-      }
-    });
-    console.log(response.data);
+    if (process.env.NODE_ENV === "default") {
+      jsonfile.readFile("answer.json").then(obj => console.log(obj));
+    } else {
+      const response = await axios.post(genereteExtenalUrl("submit-solution"), form, {
+        headers: {
+          ...form.getHeaders()
+        }
+      });
+      console.log(response.data);
+    }
   } catch (err) {
     console.log(err);
   }
