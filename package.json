@@ -19,7 +19,7 @@
   },
   "homepage": "https://github.com/GabrielStima/codeNationChallenge#readme",
   "dependencies": {
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "cross-env": "^7.0.2",
     "form-data": "^3.0.0",
     "jsonfile": "^6.0.1"
